@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+package ofedorova.models;
+
+option java_multiple_files = true;
+
+message UserProfiles {
+  repeated UserProfile user_profiles = 1;
+}
+
+message UserProfile {
+  int32 id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  repeated PhoneNumber phones = 5;
+  double height = 6;
+  float weight = 7;
+  int64 age = 8;
+  bool is_active = 9;
+  bytes photo = 10;
+  google.protobuf.Any details = 11;
+  oneof addresses {
+    string address1 = 12;
+    string address2 = 13;
+  }
+  map<string, Profession> professions = 14;
+  google.protobuf.Timestamp created_date = 15;
+}
+
+enum PhoneType {
+  MOBILE = 0;
+  HOME = 1;
+  WORK = 2;
+}
+
+message PhoneNumber {
+  string number = 1;
+  PhoneType type = 2;
+}
+
+message Profession {
+  string title = 1;
+}

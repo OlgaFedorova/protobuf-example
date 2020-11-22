@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package greet.service;
+
+import "greet/dto/greet.proto";
+
+option java_package = "ofedorova.greet.service";
+option java_multiple_files = true;
+
+service GreetService {
+  //Unary
+  rpc GreetUnary(greet.dto.GreetRequest) returns (greet.dto.GreetResponse) {};
+
+  //Server streaming
+  rpc GreetServerStreaming(greet.dto.GreetRequest) returns (stream greet.dto.GreetResponse) {};
+
+  //Client streaming
+  rpc GreetClientStreaming(stream greet.dto.GreetRequest) returns (greet.dto.GreetResponse) {};
+
+  //Bi Directional streaming
+  rpc GreetBiDirectionalStreaming(stream greet.dto.GreetRequest) returns (stream greet.dto.GreetResponse) {};
+}

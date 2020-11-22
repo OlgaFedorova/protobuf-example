@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+greet-client:
+  host: localhost
+  port: 6565
+  trustCertCollectionFile: ssl/ca.crt
+
+

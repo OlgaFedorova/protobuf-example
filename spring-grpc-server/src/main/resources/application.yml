@@ -1,0 +1,7 @@
+grpc:
+  port: 6565
+  enableReflection: true
+  security:
+    cert-chain: file:./ssl/server.crt
+    private-key: file:./ssl/server.pem
+
